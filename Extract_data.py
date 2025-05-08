@@ -138,3 +138,12 @@ max_min_temperatures["GDD"]= (((max_min_temperatures["Max_Temperature"] + max_mi
 
 max_min_temperatures.to_csv('max_min_temperatures_Balboa.csv', index=False)
 
+
+
+# Objetivos: GDD, CORRELACION GDD/PESO, CORRELACION DIAS/PESO, NORMALIZACION DATOS CUAJADOS, CUAJADO/PESO, CUJADO/DIAS
+
+# PORCENTAJE DE SIGATOKA, CANTIDAD HOJAS/PESO, SIGATOKA/PESO
+
+# GRAFICAS DE DISTRIBUCIÓN NORMAL PARA TEMPERATURA Y GDD
+
+# CURVA DE CORRELACIÓN GDD/PESO ENTRE LOS PUNTOS DE MEDICIÓN 
