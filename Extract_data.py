@@ -140,10 +140,55 @@ max_min_temperatures.to_csv('max_min_temperatures_Balboa.csv', index=False)
 
 
 
-# Objetivos: GDD, CORRELACION GDD/PESO, CORRELACION DIAS/PESO, NORMALIZACION DATOS CUAJADOS, CUAJADO/PESO, CUJADO/DIAS
 
-# PORCENTAJE DE SIGATOKA, CANTIDAD HOJAS/PESO, SIGATOKA/PESO
+#IMPUTACIÓN DE DATOS USANDO UN MODELO LINEAL DE REGRESIÓN
 
-# GRAFICAS DE DISTRIBUCIÓN NORMAL PARA TEMPERATURA Y GDD
+df= pd.read_csv('df_merged_mapa.csv')
+df_2= df[['stationTime', 'Temperatura_rio_mapa', 'Temperatura_totui']]
+df_2.to_csv('Temperaturas_Mapa_Totui.csv', index=False)
 
-# CURVA DE CORRELACIÓN GDD/PESO ENTRE LOS PUNTOS DE MEDICIÓN 
+temperatura_totui_predict= []
+for index, row in df_2.iterrows():
+     dato_temp=round((-7.982 + (1.024*row["Temperatura_rio_mapa"])),2)
+     temperatura_totui_predict.append(dato_temp) 
+
+df_2['Temperatura_totui_predict'] = temperatura_totui_predict
+
+df_2.describe()
+
+Datos_imputados= pd.read_csv("datos_rio_mapa.csv")
+Datos_imputados['stationTime'] = pd.to_datetime(Datos_imputados['stationTime'])
+
+temperatura_totui_predict= []
+for index, row in Datos_imputados.iterrows():
+     dato_temp=round((-7.982 + (1.024*row["Temperatura"])),2)
+     temperatura_totui_predict.append(dato_temp) 
+
+Datos_imputados['Temperatura_totui_predict'] = temperatura_totui_predict
+
+
+Datos_imputados_2= Datos_imputados.merge(df_2, on='stationTime', how='inner')
+
+Datos_imputados.describe()
+
+Datos_imputados_2.describe()
+
+Datos_imputados=Datos_imputados.sort_values(by='Temperatura_totui_predict', ascending=True)
+
+Datos_imputados=Datos_imputados[Datos_imputados['Temperatura_totui_predict'] > 12.0]
+
+Datos_imputados=Datos_imputados.sort_values(by='stationTime', ascending=True)
+
+Datos_imputados.to_csv('Datos_Totui_imputados.csv', index=False)
+
+
+Datos_imputados['stationTime'] = pd.to_datetime(Datos_imputados['stationTime'])
+Datos_imputados['date'] = Datos_imputados['stationTime'].dt.date
+
+max_min_temperatures = Datos_imputados.groupby('date')['Temperatura_totui_predict'].agg(['max', 'min']).reset_index()
+
+max_min_temperatures.rename(columns={'max': 'Max_Temperature', 'min': 'Min_Temperature'}, inplace=True)
+
+max_min_temperatures["GDD"]= (((max_min_temperatures["Max_Temperature"] + max_min_temperatures["Min_Temperature"])/2)-10).round(2)
+
+max_min_temperatures.to_csv('max_min_temperatures_Balboa.csv', index=False)
