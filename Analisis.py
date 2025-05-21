@@ -1,6 +1,6 @@
-# Objetivos: GDD, CORRELACION DIAS/PESO, NORMALIZACION DATOS CUAJADOS, CUAJADO/PESO, CUJADO/DIAS
+# Objetivos: GDD, NORMALIZACION DATOS CUAJADOS, CUAJADO/PESO, CUJADO/DIAS
 
-# PORCENTAJE DE SIGATOKA, CANTIDAD HOJAS/PESO, SIGATOKA/PESO
+# PORCENTAJE DE SIGATOKA, CANTIDAD HOJAS/PESO, SIGATOKA/PESO
 
 # GRAFICAS DE DISTRIBUCIÓN NORMAL PARA TEMPERATURA Y GDD
 
@@ -66,7 +66,11 @@ def Generar_gráfico_de_dispersión (tabla, xlabel, ylabel, title, param_x, para
 tabla_platano= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano")
 tabla_aguacate= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate")
 
+tabla_platano_completa= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano Belén de Umbría.")
+
+
 Generar_gráfico_de_dispersión(tabla_platano, 'GDD Plátano', 'Peso promedio (kg)', 'GDD plátano vs Peso promedio por municipio', 'GDD', 'Peso promedio (kg)')
 Generar_gráfico_de_dispersión(tabla_aguacate, 'GDD Aguacate', 'Peso promedio (kg)', 'GDD aguacate vs Peso promedio por municipio', 'GDD', 'Peso promedio (kg)')
 Generar_gráfico_de_dispersión(tabla_platano, 'Días calendario plátano', 'Peso promedio (kg)', 'Días calendario plátano vs Peso promedio por municipio', 'Días calendario', 'Peso promedio (kg)')
 Generar_gráfico_de_dispersión(tabla_aguacate, 'Días calendario aguacate', 'Peso promedio (kg)', 'Días calendario aguacate vs Peso promedio por municipio', 'Días calendario', 'Peso promedio (kg)')
+
