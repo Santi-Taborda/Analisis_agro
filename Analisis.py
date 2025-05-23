@@ -133,14 +133,14 @@ def Generar_gráfico_temporal(tabla, xlabel, ylabel, title, param_x, param_y, fe
     plt.legend()
     plt.show()
 
-def Histograma_porcentaje_cuajado(tabla):
+def Histograma_porcentaje_cuajado(tabla, titulo):
     # Histograma del porcentaje de cuajados en Belén de Umbría
     datos = tabla.groupby("Fecha")['Porcentaje cuajado'].mean().reset_index()
     plt.figure(figsize=(8,5))
     plt.hist(datos['Porcentaje cuajado'].dropna(), bins=20, color='skyblue', edgecolor='black')
     plt.xlabel('Porcentaje cuajado')
     plt.ylabel('Frecuencia')
-    plt.title('Histograma del porcentaje de cuajados en Belén de Umbría')
+    plt.title(titulo)
     plt.tight_layout()
     plt.show()
 
@@ -165,8 +165,8 @@ Generar_gráfico_de_dispersión(tabla_aguacate, 'Días calendario aguacate', 'Pe
 Generar_gráfico_de_dispersión(tabla_platano, 'Peso promedio (kg)', 'GDD Plátano', 'Peso promedio vs GDD en plátano', 'Peso promedio (kg)', 'GDD')
 Generar_gráfico_de_dispersión(tabla_platano, 'Peso promedio (kg)', 'Días calendario', 'Peso promedio vs Días calendario en plátano', 'Peso promedio (kg)', 'Días calendario')
 
-Generar_gráfico_de_dispersión(tabla_aguacate, 'Peso promedio (kg)', 'GDD Plátano', 'Peso promedio vs GDD en plátano', 'Peso promedio (kg)', 'GDD')
-Generar_gráfico_de_dispersión(tabla_aguacate, 'Peso promedio (kg)', 'Días calendario', 'Peso promedio vs Días calendario en plátano', 'Peso promedio (kg)', 'Días calendario')
+Generar_gráfico_de_dispersión(tabla_aguacate, 'Peso promedio (kg)', 'GDD Aguacate', 'Peso promedio vs GDD en aguacate', 'Peso promedio (kg)', 'GDD')
+Generar_gráfico_de_dispersión(tabla_aguacate, 'Peso promedio (kg)', 'Días calendario', 'Peso promedio vs Días calendario en aguacate', 'Peso promedio (kg)', 'Días calendario')
 
 
 Generar_gráfico_temporal(tabla_platano_Belen, 'Fecha', 'Porcentaje sigatoka (%)', 'Tiempo vs Porcentaje de sigatoka en Belén de Umbría', 'Fecha', 'Porcentaje sigatoka')
@@ -177,7 +177,7 @@ Generar_gráfico_temporal(tabla_aguacate_Belen, 'Fecha', 'Porcentaje cuajado (%)
 Generar_gráfico_temporal(tabla_aguacate_Balboa, 'Fecha', 'Porcentaje cuajado (%)', 'Tiempo vs Porcentaje de cuajado en Balboa', 'Fecha', 'Porcentaje cuajado', '2023-02-15') 
 Generar_gráfico_temporal(tabla_aguacate_Pereira, 'Fecha', 'Porcentaje cuajado (%)', 'Tiempo vs Porcentaje de cuajado en Pereira', 'Fecha', 'Porcentaje cuajado', '2023-03-06')
 
-Histograma_porcentaje_cuajado(tabla_aguacate_Belen)
-Histograma_porcentaje_cuajado(tabla_aguacate_Balboa)
-Histograma_porcentaje_cuajado(tabla_aguacate_Pereira)
+Histograma_porcentaje_cuajado(tabla_aguacate_Belen, 'Histograma del porcentaje de cuajados en Belén de Umbría')
+Histograma_porcentaje_cuajado(tabla_aguacate_Balboa, 'Histograma del porcentaje de cuajados en Balboa')
+Histograma_porcentaje_cuajado(tabla_aguacate_Pereira,'Histograma del porcentaje de cuajados en Pereira')
 
