@@ -145,16 +145,16 @@ def Histograma_porcentaje_cuajado(tabla, titulo):
     plt.show()
 
 
-tabla_platano= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano")
-tabla_aguacate= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate")
+tabla_platano= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano")
+tabla_aguacate= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate")
 
-tabla_platano_Belen= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano Belén de Umbría.")
-tabla_platano_Balboa= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano Balboa")
-tabla_platano_Pereira= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano Pereira")
+tabla_platano_Belen= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano Belén de Umbría.")
+tabla_platano_Balboa= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano Balboa")
+tabla_platano_Pereira= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Plátano Pereira")
 
-tabla_aguacate_Belen= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate Belén de Umbría")
-tabla_aguacate_Balboa= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate Balboa")
-tabla_aguacate_Pereira= pd.read_excel("C:/Users/giral/OneDrive/Documentos/EIS/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate Pereira")
+tabla_aguacate_Belen= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate Belén de Umbría")
+tabla_aguacate_Balboa= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate Balboa")
+tabla_aguacate_Pereira= pd.read_excel("C:/Users/Santi/Documents/Python/Analisis_agro/Consolidado datos proyecto de grado (sin fotos).xlsx", sheet_name="Aguacate Pereira")
 
 
 Generar_gráfico_de_dispersión(tabla_platano, 'GDD Plátano', 'Peso promedio (kg)', 'GDD plátano vs Peso promedio por municipio', 'GDD', 'Peso promedio (kg)')
